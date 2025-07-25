@@ -1,0 +1,121 @@
+:root {
+  /* Snake game color theme */
+  --snake-primary: #27ae60;
+  --snake-secondary: #2c3e50;
+  --snake-accent: #e67e22;
+  --snake-bg: #f6f6f8;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--snake-bg);
+  min-height: 100vh;
+}
+
+.App-header {
+  padding: 0;
+  min-height: 100vh;
+  background: none;
+  transition: background 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Game board container and board override */
+.game-board-wrapper {
+  padding: 2vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: var(--snake-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(44,62,80,0.09);
+  opacity: 0.92;
+  z-index: 11;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.theme-toggle:hover {
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(44,62,80,0.16);
+}
+
+/* Hide text selection highlight on board */
+.App ::selection {
+  background: none;
+}
+
+/* Responsive styles */
+@media (max-width: 650px) {
+  .App-header {
+    min-height: unset;
+    padding: 0 0 30px 0;
+  }
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Controls bar */
+@media (max-width: 550px) {
+  .game-board-wrapper {
+    padding: 2vw 1vw;
+  }
+}
+
+/* Game over/paused overlay for mobile fill */
+@media (max-width: 650px) {
+  .App .App-header > div[aria-label="Game Over Screen"],
+  .App .App-header > div[aria-label="Game Paused"] {
+    align-items: flex-start !important;
+    padding-top: 75px;
+  }
+  .App .App-header > div[aria-label="Game Over Screen"] > div,
+  .App .App-header > div[aria-label="Game Paused"] > div {
+    min-width: 95vw !important;
+    box-sizing: border-box;
+    padding: 16px 12px !important;
+  }
+}
+
+/* Font styles for game texts */
+.App-header h1 {
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -1.3px;
+  margin-bottom: 2px;
+  font-size: 2.7rem;
+}
+.App-header h2 {
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 900;
+}
+.App-link {
+  color: var(--snake-secondary);
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.App-link:hover {
+  color: var(--snake-accent);
+}
